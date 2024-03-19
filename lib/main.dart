@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'Pomodoro Timer',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.black,
-        primaryColor: Colors.white,
+        primaryColor: const Color.fromARGB(255, 0, 0, 0),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),
@@ -93,17 +93,21 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
           Text(
             '$minutes:${seconds.toString().padLeft(2, '0')}',
             style: TextStyle(
-                color: Colors.white, fontSize: 48), // Increased font size to 48
+              color: Colors.white,
+              fontSize: 48,
+            ),
           ),
           SizedBox(height: 20),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Colors.white, // background color
-              onPrimary: Colors.black, // foreground color
+              primary: Colors.white,
+              onPrimary: Colors.black,
             ),
             onPressed: _toggleTimer,
-            child: Text(_isRunning ? 'Stop' : 'Start',
-                style: TextStyle(color: Colors.black)),
+            child: Text(
+              _isRunning ? 'Stop' : 'Start',
+              style: TextStyle(color: Colors.black),
+            ),
           ),
         ],
       ),
@@ -125,7 +129,7 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
           _seconds--;
         } else {
           _timer!.cancel();
-          _startBreakTimer(); // Start the break timer when Pomodoro timer ends
+          _startBreakTimer();
         }
       });
     });
@@ -143,17 +147,77 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
 
   void _startBreakTimer() {
     setState(() {
-      _seconds = 5 * 60; // 5 minutes break
+      _seconds = 5 * 60;
       _isRunning = false;
     });
   }
 }
 
-class TodoListPage extends StatelessWidget {
+class TodoListPage extends StatefulWidget {
+  @override
+  _TodoListPageState createState() => _TodoListPageState();
+}
+
+class _TodoListPageState extends State<TodoListPage> {
+  final TextEditingController _controller = TextEditingController();
+  List<String> _tasks = [];
+
+  void _addTask(String task) {
+    setState(() {
+      _tasks.add(task);
+    });
+    _controller.clear();
+  }
+
+  void _removeTask(int index) {
+    setState(() {
+      _tasks.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Todo List Page', style: TextStyle(color: Colors.white)),
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          TextField(
+            controller: _controller,
+            onSubmitted: (String value) {
+              _addTask(value);
+            },
+            decoration: InputDecoration(
+              hintText: 'Enter a task',
+              contentPadding: EdgeInsets.all(16.0),
+              filled: true,
+              fillColor: const Color.fromARGB(255, 0, 0, 0),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+            ),
+          ),
+          SizedBox(height: 20.0),
+          Expanded(
+            child: ListView.builder(
+              itemCount: _tasks.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: Checkbox(
+                    value: false,
+                    onChanged: (bool? checked) {
+                      if (checked != null && checked) {
+                        _removeTask(index);
+                      }
+                    },
+                  ),
+                  title: Text(_tasks[index]),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -162,7 +226,10 @@ class HabitTrackerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Habit Tracker Page', style: TextStyle(color: Colors.white)),
+      child: Text(
+        'Habit Tracker Page',
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 }
