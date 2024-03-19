@@ -1,3 +1,3 @@
 # blackfox
 
-A new Flutter project.
+A minimalistic site for pomodoro, todolist and habit tracker.
