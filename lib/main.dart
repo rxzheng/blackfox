@@ -184,6 +184,7 @@ class _TodoListPageState extends State<TodoListPage> {
         children: <Widget>[
           TextField(
             controller: _controller,
+            style: TextStyle(color: Colors.white), // Set text color to white
             onSubmitted: (String value) {
               _addTask(value);
             },
@@ -211,7 +212,11 @@ class _TodoListPageState extends State<TodoListPage> {
                       }
                     },
                   ),
-                  title: Text(_tasks[index]),
+                  title: Text(
+                    _tasks[index],
+                    style: TextStyle(
+                        color: Colors.white), // Set text color to white
+                  ),
                 );
               },
             ),
