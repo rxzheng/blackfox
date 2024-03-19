@@ -239,10 +239,12 @@ class HabitTrackerPage extends StatefulWidget {
 class _HabitTrackerPageState extends State<HabitTrackerPage> {
   final TextEditingController _controller = TextEditingController();
   List<String> _habits = [];
+  List<bool> _checkedHabits = [];
 
   void _addHabit(String habit) {
     setState(() {
       _habits.add(habit);
+      _checkedHabits.add(false);
     });
     _controller.clear();
   }
@@ -250,6 +252,7 @@ class _HabitTrackerPageState extends State<HabitTrackerPage> {
   void _removeHabit(int index) {
     setState(() {
       _habits.removeAt(index);
+      _checkedHabits.removeAt(index);
     });
   }
 
@@ -297,9 +300,21 @@ class _HabitTrackerPageState extends State<HabitTrackerPage> {
                     style: TextStyle(
                         color: Colors.white), // Set text color to white
                   ),
-                  trailing: IconButton(
-                    icon: Icon(Icons.delete, color: Colors.white),
-                    onPressed: () => _removeHabit(index),
+                  trailing: Checkbox(
+                    value: _checkedHabits[index],
+                    onChanged: (newValue) {
+                      setState(() {
+                        _checkedHabits[index] = newValue!;
+                      });
+                    },
+                    checkColor: Colors.white,
+                    fillColor: MaterialStateProperty.resolveWith((states) {
+                      if (states.contains(MaterialState.selected)) {
+                        return Colors.white;
+                      }
+                      return Colors
+                          .transparent; // Use transparent color as unchecked
+                    }),
                   ),
                 );
               },
