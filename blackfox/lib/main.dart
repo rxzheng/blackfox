@@ -48,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: _widgetOptions,
       ),
       bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(horizontal: 1),
+        padding: EdgeInsets.symmetric(horizontal: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -92,12 +92,18 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
         children: [
           Text(
             '$minutes:${seconds.toString().padLeft(2, '0')}',
-            style: TextStyle(color: Colors.white, fontSize: 32),
+            style: TextStyle(
+                color: Colors.white, fontSize: 48), // Increased font size to 48
           ),
           SizedBox(height: 20),
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Colors.white, // background color
+              onPrimary: Colors.black, // foreground color
+            ),
             onPressed: _toggleTimer,
-            child: Text(_isRunning ? 'Stop' : 'Start'),
+            child: Text(_isRunning ? 'Stop' : 'Start',
+                style: TextStyle(color: Colors.black)),
           ),
         ],
       ),
