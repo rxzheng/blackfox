@@ -182,19 +182,23 @@ class _TodoListPageState extends State<TodoListPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          TextField(
-            controller: _controller,
-            style: TextStyle(color: Colors.white), // Set text color to white
-            onSubmitted: (String value) {
-              _addTask(value);
-            },
-            decoration: InputDecoration(
-              hintText: 'Enter a task',
-              contentPadding: EdgeInsets.all(16.0),
-              filled: true,
-              fillColor: const Color.fromARGB(255, 0, 0, 0),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8.0),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: _controller,
+              style: TextStyle(color: Colors.white), // Set text color to white
+              onSubmitted: (String value) {
+                _addTask(value);
+              },
+              decoration: InputDecoration(
+                hintText: 'Enter a task',
+                contentPadding: EdgeInsets.symmetric(
+                    horizontal: 16.0, vertical: 12.0), // Adjust padding here
+                filled: true,
+                fillColor: const Color.fromARGB(255, 0, 0, 0),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
               ),
             ),
           ),
@@ -227,13 +231,81 @@ class _TodoListPageState extends State<TodoListPage> {
   }
 }
 
-class HabitTrackerPage extends StatelessWidget {
+class HabitTrackerPage extends StatefulWidget {
+  @override
+  _HabitTrackerPageState createState() => _HabitTrackerPageState();
+}
+
+class _HabitTrackerPageState extends State<HabitTrackerPage> {
+  final TextEditingController _controller = TextEditingController();
+  List<String> _habits = [];
+
+  void _addHabit(String habit) {
+    setState(() {
+      _habits.add(habit);
+    });
+    _controller.clear();
+  }
+
+  void _removeHabit(int index) {
+    setState(() {
+      _habits.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Habit Tracker Page',
-        style: TextStyle(color: Colors.white),
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                TextField(
+                  controller: _controller,
+                  style:
+                      TextStyle(color: Colors.white), // Set text color to white
+                  onSubmitted: (String value) {
+                    _addHabit(value);
+                  },
+                  decoration: InputDecoration(
+                    hintText: 'Enter a habit',
+                    contentPadding: EdgeInsets.symmetric(
+                        horizontal: 16.0,
+                        vertical: 12.0), // Adjust padding here
+                    filled: true,
+                    fillColor: const Color.fromARGB(255, 0, 0, 0),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20.0),
+              ],
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: _habits.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(
+                    _habits[index],
+                    style: TextStyle(
+                        color: Colors.white), // Set text color to white
+                  ),
+                  trailing: IconButton(
+                    icon: Icon(Icons.delete, color: Colors.white),
+                    onPressed: () => _removeHabit(index),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
