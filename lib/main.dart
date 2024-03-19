@@ -240,11 +240,13 @@ class _HabitTrackerPageState extends State<HabitTrackerPage> {
   final TextEditingController _controller = TextEditingController();
   List<String> _habits = [];
   List<bool> _checkedHabits = [];
+  List<int> _streakCount = [];
 
   void _addHabit(String habit) {
     setState(() {
       _habits.add(habit);
       _checkedHabits.add(false);
+      _streakCount.add(0);
     });
     _controller.clear();
   }
@@ -253,6 +255,13 @@ class _HabitTrackerPageState extends State<HabitTrackerPage> {
     setState(() {
       _habits.removeAt(index);
       _checkedHabits.removeAt(index);
+      _streakCount.removeAt(index);
+    });
+  }
+
+  void _incrementStreak(int index) {
+    setState(() {
+      _streakCount[index]++;
     });
   }
 
@@ -295,16 +304,33 @@ class _HabitTrackerPageState extends State<HabitTrackerPage> {
               itemCount: _habits.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(
-                    _habits[index],
-                    style: TextStyle(
-                        color: Colors.white), // Set text color to white
+                  title: Row(
+                    children: [
+                      Text(
+                        'Streak: ${_streakCount[index]}',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0,
+                        ),
+                      ),
+                      SizedBox(width: 20.0),
+                      Text(
+                        _habits[index],
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0,
+                        ),
+                      ),
+                    ],
                   ),
                   trailing: Checkbox(
                     value: _checkedHabits[index],
                     onChanged: (newValue) {
                       setState(() {
                         _checkedHabits[index] = newValue!;
+                        if (newValue) {
+                          _incrementStreak(index);
+                        }
                       });
                     },
                     checkColor: Colors.white,
