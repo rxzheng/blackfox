@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,9 +10,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Bottom Nav Example',
+      title: 'Blackfox',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: Colors.black, // Set background color to black
+        primaryColor: Colors.white, // Set primary color to white
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),
@@ -41,41 +44,95 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Blackfox'),
-      ),
       body: IndexedStack(
         index: _selectedIndex,
         children: _widgetOptions,
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.timer),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.checklist),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.star),
-            label: '',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+      bottomNavigationBar: Container(
+        padding:
+            EdgeInsets.symmetric(horizontal: 1), // Adjust horizontal padding
+        child: Row(
+          mainAxisAlignment:
+              MainAxisAlignment.center, // Adjust spacing between icons
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.timer,
+                  size: 20, color: Colors.white), // Set color to white
+              onPressed: () => _onItemTapped(0),
+            ),
+            IconButton(
+              icon: Icon(Icons.checklist,
+                  size: 20, color: Colors.white), // Set color to white
+              onPressed: () => _onItemTapped(1),
+            ),
+            IconButton(
+              icon: Icon(Icons.star,
+                  size: 20, color: Colors.white), // Set color to white
+              onPressed: () => _onItemTapped(2),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
-class PomodoroTimerPage extends StatelessWidget {
+class PomodoroTimerPage extends StatefulWidget {
+  @override
+  _PomodoroTimerPageState createState() => _PomodoroTimerPageState();
+}
+
+class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
+  int _seconds = 0;
+  Timer? _timer;
+  bool _isRunning = false;
+
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Pomodoro Timer Page'),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            '$_seconds',
+            style: TextStyle(color: Colors.white, fontSize: 32),
+          ),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: _isRunning ? null : _startTimer,
+                child: Text('Start'),
+              ),
+              SizedBox(width: 20),
+              ElevatedButton(
+                onPressed: _stopTimer,
+                child: Text('Stop'),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
+  }
+
+  void _startTimer() {
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        _seconds++;
+      });
+    });
+    setState(() {
+      _isRunning = true;
+    });
+  }
+
+  void _stopTimer() {
+    _timer?.cancel();
+    setState(() {
+      _isRunning = false;
+    });
   }
 }
 
@@ -83,7 +140,8 @@ class TodoListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Todo List Page'),
+      child: Text('Todo List Page',
+          style: TextStyle(color: Colors.white)), // Set text color to white
     );
   }
 }
@@ -92,7 +150,8 @@ class HabitTrackerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Habit Tracker Page'),
+      child: Text('Habit Tracker Page',
+          style: TextStyle(color: Colors.white)), // Set text color to white
     );
   }
 }
