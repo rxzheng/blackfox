@@ -1,0 +1,20 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     '/Users/rxzheng/git/blackfox/build/macos/Build/Products/Release/blackfox.app/Contents/MacOS/blackfox'
+relocations:
+  - { offsetInCU: 0x27, offset: 0xC990B, size: 0x8, addend: 0x0, symName: '_$s8blackfox17MainFlutterWindowC12awakeFromNibyyFTo', symObjAddr: 0x0, symBinAddr: 0x1000019B0, symSize: 0xF0 }
+  - { offsetInCU: 0x61, offset: 0xC9945, size: 0x8, addend: 0x0, symName: '_$s8blackfox17MainFlutterWindowC12awakeFromNibyyFTo', symObjAddr: 0x0, symBinAddr: 0x1000019B0, symSize: 0xF0 }
+  - { offsetInCU: 0x10E, offset: 0xC99F2, size: 0x8, addend: 0x0, symName: '_$s8blackfox17MainFlutterWindowC11contentRect9styleMask7backing5deferACSo6CGRectV_So013NSWindowStyleH0VSo18NSBackingStoreTypeVSbtcfcTo', symObjAddr: 0xF0, symBinAddr: 0x100001AA0, symSize: 0x80 }
+  - { offsetInCU: 0x196, offset: 0xC9A7A, size: 0x8, addend: 0x0, symName: '_$s8blackfox17MainFlutterWindowCMa', symObjAddr: 0x1A0, symBinAddr: 0x100001B50, symSize: 0x20 }
+  - { offsetInCU: 0x1AA, offset: 0xC9A8E, size: 0x8, addend: 0x0, symName: '_$s8blackfox24RegisterGeneratedPlugins8registryySo21FlutterPluginRegistry_p_tFTf4e_nSo0F14ViewControllerC_Tg5', symObjAddr: 0x1C0, symBinAddr: 0x100001B70, symSize: 0x102 }
+  - { offsetInCU: 0x4B1, offset: 0xC9D95, size: 0x8, addend: 0x0, symName: '_$s8blackfox17MainFlutterWindowCfD', symObjAddr: 0x170, symBinAddr: 0x100001B20, symSize: 0x30 }
+  - { offsetInCU: 0x27, offset: 0xC9DE4, size: 0x8, addend: 0x0, symName: '_$s8blackfox11AppDelegateC47applicationShouldTerminateAfterLastWindowClosedySbSo13NSApplicationCFTo', symObjAddr: 0x0, symBinAddr: 0x100001C80, symSize: 0x10 }
+  - { offsetInCU: 0x4B, offset: 0xC9E08, size: 0x8, addend: 0x0, symName: '_$s8blackfox11AppDelegateC47applicationShouldTerminateAfterLastWindowClosedySbSo13NSApplicationCFTo', symObjAddr: 0x0, symBinAddr: 0x100001C80, symSize: 0x10 }
+  - { offsetInCU: 0x7D, offset: 0xC9E3A, size: 0x8, addend: 0x0, symName: '_$s8blackfox11AppDelegateCACycfcTo', symObjAddr: 0x10, symBinAddr: 0x100001C90, symSize: 0x30 }
+  - { offsetInCU: 0xD1, offset: 0xC9E8E, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x70, symBinAddr: 0x100001CF0, symSize: 0x10 }
+  - { offsetInCU: 0xEF, offset: 0xC9EAC, size: 0x8, addend: 0x0, symName: '_$s8blackfox11AppDelegateCMa', symObjAddr: 0x80, symBinAddr: 0x100001D00, symSize: 0x14 }
+  - { offsetInCU: 0x263, offset: 0xCA020, size: 0x8, addend: 0x0, symName: '_$s8blackfox11AppDelegateCfD', symObjAddr: 0x40, symBinAddr: 0x100001CC0, symSize: 0x30 }
+  - { offsetInCU: 0x2B, offset: 0xCA083, size: 0x8, addend: 0x0, symName: '_$s8blackfox19ResourceBundleClass33_2218249AA50A62D760235D285C836242LLCfD', symObjAddr: 0x0, symBinAddr: 0x100001D20, symSize: 0x20 }
+  - { offsetInCU: 0x6D, offset: 0xCA0C5, size: 0x8, addend: 0x0, symName: '_$s8blackfox19ResourceBundleClass33_2218249AA50A62D760235D285C836242LLCMa', symObjAddr: 0x20, symBinAddr: 0x100001D40, symSize: 0x14 }
+  - { offsetInCU: 0x1AB, offset: 0xCA203, size: 0x8, addend: 0x0, symName: '_$s8blackfox19ResourceBundleClass33_2218249AA50A62D760235D285C836242LLCfD', symObjAddr: 0x0, symBinAddr: 0x100001D20, symSize: 0x20 }
+...

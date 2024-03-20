@@ -1,0 +1,10 @@
+version: "Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)"
+options: "92e7996ed033a3537e423fad46eb2c860e2ddbb92153fc7f62d5894a35380697"
+build_start_time: [1710846180, 443099000]
+build_end_time: [1710846182, 328756000]
+inputs:
+  ? "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/DerivedSources/GeneratedAssetSymbols.swift"
+  : [1710846180, 407161516]
+  "/Users/rxzheng/git/blackfox/macos/Flutter/GeneratedPluginRegistrant.swift": [1710846173, 632267915]
+  "/Users/rxzheng/git/blackfox/macos/Runner/AppDelegate.swift": [1710838273, 178883403]
+  "/Users/rxzheng/git/blackfox/macos/Runner/MainFlutterWindow.swift": [1710838273, 181012616]

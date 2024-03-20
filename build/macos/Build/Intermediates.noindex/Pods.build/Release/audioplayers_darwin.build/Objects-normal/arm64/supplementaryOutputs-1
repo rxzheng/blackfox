@@ -1,0 +1,9 @@
+"/Users/rxzheng/.pub-cache/hosted/pub.dev/audioplayers_darwin-5.0.2/macos/Classes/AudioContext.swift":
+  dependencies: "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Pods.build/Release/audioplayers_darwin.build/Objects-normal/arm64/audioplayers_darwin-master.d"
+  diagnostics: "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Pods.build/Release/audioplayers_darwin.build/Objects-normal/arm64/audioplayers_darwin-master.dia"
+  abi-baseline-json: "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Pods.build/Release/audioplayers_darwin.build/Objects-normal/arm64/audioplayers_darwin.abi.json"
+  swiftdoc: "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Pods.build/Release/audioplayers_darwin.build/Objects-normal/arm64/audioplayers_darwin.swiftdoc"
+  swiftmodule: "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Pods.build/Release/audioplayers_darwin.build/Objects-normal/arm64/audioplayers_darwin.swiftmodule"
+  const-values: "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Pods.build/Release/audioplayers_darwin.build/Objects-normal/arm64/audioplayers_darwin-master.swiftconstvalues"
+  swiftsourceinfo: "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Pods.build/Release/audioplayers_darwin.build/Objects-normal/arm64/audioplayers_darwin.swiftsourceinfo"
+  objc-header: "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Pods.build/Release/audioplayers_darwin.build/Objects-normal/arm64/audioplayers_darwin-Swift.h"

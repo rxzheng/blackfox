@@ -1,0 +1,9 @@
+"/Users/rxzheng/git/blackfox/macos/Runner/MainFlutterWindow.swift":
+  dependencies: "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/Runner-master.d"
+  const-values: "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/Runner-master.swiftconstvalues"
+  objc-header: "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/blackfox-Swift.h"
+  abi-baseline-json: "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/blackfox.abi.json"
+  swiftsourceinfo: "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/blackfox.swiftsourceinfo"
+  swiftmodule: "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/blackfox.swiftmodule"
+  diagnostics: "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/Runner-master.dia"
+  swiftdoc: "/Users/rxzheng/git/blackfox/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/blackfox.swiftdoc"
