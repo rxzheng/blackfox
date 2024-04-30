@@ -97,12 +97,8 @@ class _PomodoroTimerPageState extends State<PomodoroTimerPage> {
               fontSize: 48,
             ),
           ),
-          SizedBox(height: 20),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              primary: Colors.white,
-              onPrimary: Colors.black,
-            ),
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
             onPressed: _toggleTimer,
             child: Text(
               _isRunning ? 'Stop' : 'Start',
